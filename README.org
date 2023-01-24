@@ -1,0 +1,46 @@
+#+TITLE: configuation of ssl for cl+ssl
+
+This configuration under windows was anticipated by cl+ssl
+
+#+BEGIN_SRC lisp
+(in-package :cl+ssl/config)
+
+(defvar *libssl-override* nil)
+(defvar *libcrypto-override* nil)
+
+(defmacro define-libssl-path (path)
+  "Define the path where libssl resides to be PATH (not evaluated). This
+macroshould be used before loading CL+SSL.
+
+For instance, this defines libssl as \"/opt/local/lib/libssl.dylib\":
+
+    (ql:quickload :cl+ssl/config)
+    (cl+ssl:define-libssl-path \"/opt/local/lib/libssl.dylib\")
+    (ql:quickload :cl+ssl)"
+  `(progn
+     (cffi:define-foreign-library libssl (t ,path))
+     (setq *libssl-override* t)))
+
+(defmacro define-libcrypto-path (path)
+  "Define the path where libcrypto resides to be PATH (not evaluated). This
+macro should be used before loading CL+SSL."
+  `(progn
+     (cffi:define-foreign-library libcrypto (t ,path))
+     (setq *libcrypto-override* t)))
+#+END_SRC
+
+I believe the correct sequence is this
+#+BEGIN_SRC lisp
+   (ql:quickload :cl+ssl/config)
+    (cl+ssl/config:define-libssl-path "c:\devel\msys64\mingw64\bin\libcrypto-1_1-x64.dll")
+    (ql:quickload :cl+ssl)
+#+END_SRC
+
+This is the ./configure; make pattern in unix software. Are my lib-preload cases all solved like this?
+
+In a related issue this part of the asdf manual describes how a system is defined to "cook" raw data used in the system construction:
+
+[[https://asdf.common-lisp.dev/asdf/A-more-involved-example.html]]
+
+The concept I have is that cl+ssl needed to be configured before the system can be compiled.
+The configuration during windows compile is to locate the crypto dll.
