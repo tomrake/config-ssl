@@ -8,7 +8,11 @@
 (in-package #:config-ssl/main)
 
 (defun preload ()
- (cl+ssl/config:define-libcrypto-path "c:/devel/msys64/mingw64/bin/libcrypto-1_1-x64.dll")
- (cl+ssl/config:define-libssl-path "c:/devel/msys64/mingw64/bin/libssl-1_1-x64.dll"))
+  #+macos ()
+  #+linux ()
+  #+ (and  win32 64-BIT) (cl+ssl/config:define-libcrypto-path "c:/devel/external-libs/openssl-1.0.2u/win-x86_64/libeay32.dll")
+  #+ (and  windows 32-BIT-HOST) (cl+ssl/config:define-libcrypto-path "c:/devel/external-libs/openssl-1.0.2u/win-i386/libeay32.dll")
+  #+ (and  win32 64-BIT) (cl+ssl/config:define-libssl-path "c:/devel/external-libs/openssl-1.0.2u/win-x86_64/ssleay32.dll")
+  #+ (and  windows 32-BIT-HOST) (cl+ssl/config:define-libssl-path "c:/devel/external-libs/openssl-1.0.2u/win-i386/ssleay32.dll"))
 
 (preload)
