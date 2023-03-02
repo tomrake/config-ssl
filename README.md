@@ -1,16 +1,16 @@
 # CONFIG-SSL
 
-The  purpose of [CONFIG-SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) is to configure [CL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) locations of external libraries.
+The  purpose of [CONFIG-SSL] is to configure [CL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) locations of external libraries.
 
 This has repo several branches for my configutation
 
 ## branch twr-msys
 
-This branch configures [SL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) to use libleay32.dll and ssleary32.dll from msys2 64 bit distribution.
+This branch configures [CL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) to use libleay32.dll and ssleary32.dll from msys2 64 bit distribution.
 
 ## branch twr-external-store
 
-This branch configures [SL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) to use the latest distributed OpenSSL .dll files.
+This branch configures [CL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) to use the latest distributed OpenSSL .dll files.
 
 ## branch exp-store
 
