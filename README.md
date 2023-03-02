@@ -30,7 +30,7 @@ This branch configures [CL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl) to u
 This is an experimental branch that uses the feature EXTERNAL-LIB-STORE to locate the root of system wide external store to configure [CL+SSL](https://github.com/cl-plus-ssl/cl-plus-ssl).
 
 
-* CL+SSL style advocate
+# CL+SSL style advocate
 
 [See the CL+SSL libary advocate document](advocate.html)
 [See the argument for Central Store of shared libraries](central-store.html)
