@@ -32,5 +32,7 @@ This is an experimental branch that uses the feature EXTERNAL-LIB-STORE to locat
 
 # CL+SSL style advocate
 
-[See the CL+SSL libary advocate document](advocate.html)
-[See the argument for Central Store of shared libraries](central-store.html)
+## See Also
+
+- [CL+SSL libary advocate document](advocate.html)
+- [Argument for Central Store of shared libraries](central-store.html)
